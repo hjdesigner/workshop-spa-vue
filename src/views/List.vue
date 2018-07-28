@@ -18,8 +18,7 @@
           type="default"
           icon="el-icon-edit">Edit</el-button>
       </div>
-      <div class="text item">
-        {{ note.desc }}
+			<div class="text item" v-html="note.desc">
       </div>
     </el-card>
   </div>

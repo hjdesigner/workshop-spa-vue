@@ -36,6 +36,7 @@
 
 <script>
 import HeaderBar from '@/components/HeaderBar';
+import marked from 'marked'
 
 export default {
   name: 'VNotes',
@@ -63,7 +64,8 @@ export default {
       this.dialogVisible = !this.dialogVisible
     },
     addNoteAndClose () {
-      this.getNotesFromLocalStorage()
+			this.getNotesFromLocalStorage()
+			this.form.desc = marked(this.form.desc)
       this.notes.push({ ...this.form, createdAt: new Date().getTime() })
       window.localStorage.setItem('notes', JSON.stringify(this.notes))
       this.form = {}
@@ -73,7 +75,8 @@ export default {
       this.notes.splice(index, 1)
       window.localStorage.setItem('notes', JSON.stringify(this.notes))
     },
-    saveNote ({ note, index }) { 
+		saveNote ({ note, index }) { 
+			note.desc = marked(note.desc)
       this.notes[index] = note
       window.localStorage.setItem('notes', JSON.stringify(this.notes))
     }

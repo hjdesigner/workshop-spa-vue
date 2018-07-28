@@ -10,6 +10,7 @@
   "dependencies": {
     "babel-plugin-component": "^1.1.1",
     "element-ui": "^2.4.5",
+    "marked": "^0.4.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
